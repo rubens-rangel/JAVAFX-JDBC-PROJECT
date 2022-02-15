@@ -1,18 +1,16 @@
 package com.example.javafxjdbcproject.model.services;
 
+import com.example.javafxjdbcproject.model.dao.DaoFactory;
+import com.example.javafxjdbcproject.model.dao.DepartmentDao;
 import com.example.javafxjdbcproject.model.entities.Department;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class DepartmentService {
 
+    private DepartmentDao dao = DaoFactory.createDepartmentDao();
+
     public List<Department> findAll(){
-        List<Department> list = new ArrayList<>();
-        list.add(new Department(1, "Books"));
-        list.add(new Department(1, "Computers"));
-        list.add(new Department(1, "Eletronics"));
-        return list;
+        return dao.findAll();
     }
 
 }
