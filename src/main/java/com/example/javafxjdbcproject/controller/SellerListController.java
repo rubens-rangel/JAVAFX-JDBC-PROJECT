@@ -5,6 +5,7 @@ import com.example.javafxjdbcproject.ProjectApplication;
 import com.example.javafxjdbcproject.db.DbException;
 import com.example.javafxjdbcproject.listener.DataChangeListeners;
 import com.example.javafxjdbcproject.model.entities.Seller;
+import com.example.javafxjdbcproject.model.services.DepartmentService;
 import com.example.javafxjdbcproject.model.services.SellerService;
 import com.example.javafxjdbcproject.util.Alerts;
 import com.example.javafxjdbcproject.util.Utils;
@@ -114,7 +115,8 @@ public class SellerListController implements Initializable, DataChangeListeners 
 
             SellerFormController controller = loader.getController();
             controller.setSeller(obj);
-            controller.setSellerService(new SellerService());
+            controller.setServices(new SellerService(), new DepartmentService());
+            controller.loadAssocietedObjects();
             controller.subscribeDataChangeListeners(this);
             controller.updateFormData();
 
@@ -126,6 +128,7 @@ public class SellerListController implements Initializable, DataChangeListeners 
             dialogStage.initModality(Modality.WINDOW_MODAL);
             dialogStage.showAndWait();
         } catch (IOException e) {
+           e.printStackTrace();
             Alerts.showAlert("IO Exception", "Error loading view", e.getMessage(), Alert.AlertType.ERROR);
             }
         }
