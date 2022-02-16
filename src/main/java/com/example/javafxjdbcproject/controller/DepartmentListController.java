@@ -3,7 +3,6 @@ package com.example.javafxjdbcproject.controller;
 
 import com.example.javafxjdbcproject.ProjectApplication;
 import com.example.javafxjdbcproject.db.DbException;
-import com.example.javafxjdbcproject.db.DbIntegrityException;
 import com.example.javafxjdbcproject.listener.DataChangeListeners;
 import com.example.javafxjdbcproject.model.entities.Department;
 import com.example.javafxjdbcproject.model.services.DepartmentService;
